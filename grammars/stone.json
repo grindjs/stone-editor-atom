@@ -1,0 +1,92 @@
+{
+	"name": "Grind Stone",
+	"fileTypes": [ "stone" ],
+	"scopeName": "text.html.stone",
+	"injections": {
+		"L:text.html.stone - (meta.tag.template.stone | comment.block.stone)": {
+			"patterns": [
+				{ "include": "#comment" },
+				{ "include": "#output" },
+				{ "include": "#raw" },
+				{ "include": "#directives-with-args" },
+				{ "include": "#directives" },
+				{ "include": "#custom-directives-with-args" },
+				{ "include": "#custom-directives" }
+			]
+		}
+	},
+	"patterns": [
+		{ "include": "text.html.basic" }
+	],
+	"repository": {
+		"comment": {
+			"begin": "{{--",
+			"beginCaptures": {
+				"0": { "name": "punctuation.definition.comment.stone" }
+			},
+			"end": "--}}",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.comment.stone" }
+			},
+			"name": "comment.block.stone"
+		},
+		"output": {
+			"begin": "\\{(!!)|(\\{\\{)-?",
+			"end": "-?(\\}?\\}\\})|(!!)\\}",
+			"captures": {
+				"0": { "name": "entity.name.tag.stone" }
+			},
+			"name": "meta.tag.template.stone",
+			"patterns": [
+				{ "include": "source.js" }
+			]
+		},
+		"raw": {
+			"begin": "@\\{\\{\\{?-?",
+			"end": "-?\\}?\\}\\}",
+			"captures": {
+				"0": { "name": "entity.name.tag.stone" }
+			},
+			"name": "meta.tag.template.stone",
+			"patterns": [
+				{ "include": "text.html.basic" }
+			]
+		},
+		"directives-with-args": {
+			"begin": "(\\s{0}|^)(\\@)\\b(asset|babel|block|break|coffee|component|continue|css|debug|dump|each|elseif|extends|for|foreach|forelse|hasSection|if|include|js|layout|less|macro|push|sass|scss|script|section|set|slot|stack|styl|style|stylus|unless|while|yield)\\b(?=(|\\s*|)\\()",
+			"beginCaptures": {
+				"0": { "name": "keyword.stone" }
+			},
+			"end": "(?<=\\))(?!.*\\))",
+			"name": "meta.tag.template.stone",
+			"patterns": [
+				{ "include": "source.js" }
+			]
+		},
+		"directives": {
+			"match": "(\\s{0}|^)(\\@)\\b(break|continue|else|empty|endblock|endcomponent|endfor|endforeach|endforelse|endif|endmacro|endpush|endsection|endslot|endspaceless|endunless|endwhile|parent|setup|show|spaceless|super)\\b",
+			"captures": {
+				"0": { "name": "keyword.stone" }
+			},
+			"name": "meta.tag.template.stone"
+		},
+		"custom-directives-with-args": {
+			"begin": "(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(?=(|\\s*|)\\()",
+			"beginCaptures": {
+				"0": { "name": "entity.name.function.stone" }
+			},
+			"end": "(?<=\\))(?!.*\\))",
+			"name": "meta.tag.template.stone",
+			"patterns": [
+				{ "include": "source.js" }
+			]
+		},
+		"custom-directives": {
+			"match": "(\\s{0}|^)(\\@)\\b([a-zA-Z_]+)\\b(\\s?)\\b",
+			"captures": {
+				"0": { "name": "entity.name.function.stone" }
+			},
+			"name": "meta.tag.template.stone"
+		}
+	}
+}

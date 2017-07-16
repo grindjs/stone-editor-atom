@@ -1,0 +1,10 @@
+{
+  "name": "language-stone",
+  "version": "0.0.0",
+  "description": "Syntax highlighter for the Stone templating engine used in Grind.",
+  "repository": "https://github.com/grindjs/stone-editor-atom",
+  "license": "MIT",
+  "engines": {
+    "atom": ">1.0"
+  }
+}
