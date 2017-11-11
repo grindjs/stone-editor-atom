@@ -12,6 +12,7 @@
 				{ "include": "#directives" },
 				{ "include": "#custom-directives-with-args" },
 				{ "include": "#custom-directives" },
+				{ "include": "#tagged-slot" },
 				{ "include": "#tagged-component" }
 			]
 		}
@@ -105,6 +106,19 @@
 					"include": "#tagged-component-attribute"
 				}
 			]
+		},
+		"tagged-slot": {
+			"begin": "(</?)(slot):([a-zA-Z0-9_]+)",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition.tag.html" },
+				"2": { "name": "entity.name.tag.other.html" },
+				"3": { "name": "entity.other.attribute-name.html" }
+			},
+			"end": ">",
+			"endCaptures": {
+				"1": { "name": "punctuation.definition.tag.end.html" }
+			},
+			"name": "meta.tag.block.slot.html"
 		},
 		"tagged-component-attribute": {
 			"patterns": [
