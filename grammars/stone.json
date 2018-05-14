@@ -55,7 +55,7 @@
 			]
 		},
 		"directives-with-args": {
-			"begin": "(\\s{0}|^)(\\@)\\b(asset|babel|block|break|coffee|component|continue|css|debug|dump|each|elseif|extends|for|foreach|forelse|hasSection|if|include|js|layout|less|macro|push|sass|scss|script|section|set|slot|stack|styl|style|stylus|unless|while|yield)\\b(?=(|\\s*|)\\()",
+			"begin": "(\\s{0}|^)(\\@)\\b(asset|babel|block|break|coffee|component|continue|css|debug|dump|each|elseif|extends|for|foreach|forelse|hasSection|hassection|hasStack|hasstack|if|include|js|layout|less|macro|push|sass|scss|script|section|set|slot|stack|styl|style|stylus|unless|unlesshasstack|unlessHasStack|while|yield)\\b(?=(|\\s*|)\\()",
 			"beginCaptures": {
 				"0": { "name": "keyword.stone" }
 			},
@@ -66,7 +66,7 @@
 			]
 		},
 		"directives": {
-			"match": "(\\s{0}|^)(\\@)\\b(break|continue|else|empty|endblock|endcomponent|endfor|endforeach|endforelse|endif|endmacro|endpush|endsection|endslot|endspaceless|endunless|endwhile|parent|setup|show|spaceless|super)\\b",
+			"match": "(\\s{0}|^)(\\@)\\b(break|continue|else|empty|endblock|endcomponent|endfor|endforeach|endforelse|endif|endmacro|endpush|endsection|endhasstack|endslot|endspaceless|endunless|endunlesshasstack|endwhile|parent|setup|show|spaceless|super)\\b",
 			"captures": {
 				"0": { "name": "keyword.stone" }
 			},
